@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://5lbwiqqmetql"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_715ky"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qbkls"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ka624"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=221499644]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1434121162]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1829473302]
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=509925688]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1399000753]
+shape = SubResource("CapsuleShape2D_715ky")
+debug_color = Color(0.9783152, 0.1029103, 0.2746668, 0.41960785)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1849202791]
+replication_config = SubResource("SceneReplicationConfig_qbkls")
+
+[node name="MovementCollider" type="CollisionShape2D" parent="." unique_id=1218707510]
+shape = SubResource("CapsuleShape2D_ka624")
