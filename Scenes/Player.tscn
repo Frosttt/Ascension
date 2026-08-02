@@ -1,14 +1,22 @@
 [gd_scene format=3 uid="uid://5lbwiqqmetql"]
 
+[ext_resource type="Script" uid="uid://ccinu7wu74kct" path="res://scripts/player/PlayerCharacter.gd" id="1_gntrk"]
+[ext_resource type="Texture2D" uid="uid://do2lk6p52lvgo" path="res://Sprites/Temp/square.png" id="2_5ixxa"]
+[ext_resource type="Script" uid="uid://cumq4xpohkma1" path="res://scripts/combat/HealthComponent.gd" id="2_dewec"]
+[ext_resource type="Script" uid="uid://dwymqqix1kh46" path="res://scripts/combat/MovementComponent.gd" id="4_dewec"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_715ky"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qbkls"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ka624"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=221499644]
+[node name="Player" type="CharacterBody2D" unique_id=221499644]
+script = ExtResource("1_gntrk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1434121162]
+scale = Vector2(0.03, 0.063)
+texture = ExtResource("2_5ixxa")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1829473302]
 
@@ -24,3 +32,9 @@ replication_config = SubResource("SceneReplicationConfig_qbkls")
 
 [node name="MovementCollider" type="CollisionShape2D" parent="." unique_id=1218707510]
 shape = SubResource("CapsuleShape2D_ka624")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1434869978]
+script = ExtResource("2_dewec")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1078902342]
+script = ExtResource("4_dewec")
