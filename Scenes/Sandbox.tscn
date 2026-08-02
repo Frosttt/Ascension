@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkcokiffseol8"]
 
-[ext_resource type="Script" uid="uid://bwyyc6f60ksrd" path="res://scripts/levels/TestLevel.gd" id="1_qotlx"]
+[ext_resource type="Script" uid="uid://bwyyc6f60ksrd" path="res://gdscripts/levels/TestLevel.gd" id="1_qotlx"]
 [ext_resource type="PackedScene" uid="uid://5lbwiqqmetql" path="res://Scenes/Player.tscn" id="2_eo7g3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_715ky"]

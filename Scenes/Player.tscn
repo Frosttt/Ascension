@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://5lbwiqqmetql"]
 
-[ext_resource type="Script" uid="uid://ccinu7wu74kct" path="res://scripts/player/PlayerCharacter.gd" id="1_gntrk"]
+[ext_resource type="Script" uid="uid://ccinu7wu74kct" path="res://gdscripts/player/PlayerCharacter.gd" id="1_gntrk"]
 [ext_resource type="Texture2D" uid="uid://bt8y1g1xwtsy" path="res://Sprites/Temp/Frostttz_MiniPixelx10.png" id="2_5ixxa"]
-[ext_resource type="Script" uid="uid://cumq4xpohkma1" path="res://scripts/combat/HealthComponent.gd" id="2_dewec"]
-[ext_resource type="Script" uid="uid://dwymqqix1kh46" path="res://scripts/combat/MovementComponent.gd" id="4_dewec"]
+[ext_resource type="Script" uid="uid://cumq4xpohkma1" path="res://gdscripts/combat/HealthComponent.gd" id="2_dewec"]
+[ext_resource type="Script" uid="uid://dwymqqix1kh46" path="res://gdscripts/combat/MovementComponent.gd" id="4_dewec"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_715ky"]
 height = 46.0
@@ -18,7 +18,7 @@ height = 56.0
 script = ExtResource("1_gntrk")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1434121162]
-position = Vector2(0, -10.965)
+position = Vector2(0, -11)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_5ixxa")
 
