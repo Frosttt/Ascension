@@ -19,6 +19,7 @@ scale = Vector2(0.03, 0.063)
 texture = ExtResource("2_5ixxa")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1829473302]
+position_smoothing_enabled = true
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=509925688]
 visible = false
