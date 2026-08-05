@@ -25,12 +25,12 @@ public partial class MovementComponent : Node
 		Vector2 targetVel = InputDirection * MaxSpeed;
 		float velocityChange = Acceleration;
 
-        if (InputDirection.IsZeroApprox())
-        {
+		if (InputDirection.IsZeroApprox())
+		{
 			velocityChange = Deceleration;
-        }
+		}
 
-        return targetVel;
+		return CurrentVelocity.MoveToward(targetVel,  velocityChange * (float)delta);
 	}
 
 	public static Direction GetCardinalDirectionFromVector(Vector2 Vector)
