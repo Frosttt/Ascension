@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkcokiffseol8"]
 
-[ext_resource type="Script" uid="uid://n2q1od7y23jv" path="res://csharpScripts/Levels/TestLevel.cs" id="1_qotlx"]
+[ext_resource type="Script" uid="uid://bwyyc6f60ksrd" path="res://Scripts/levels/TestLevel.gd" id="1_eo7g3"]
 [ext_resource type="PackedScene" uid="uid://5lbwiqqmetql" path="res://Scenes/Player.tscn" id="2_eo7g3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_715ky"]
@@ -10,8 +10,8 @@ size = Vector2(1280, 32)
 size = Vector2(32, 720)
 
 [node name="Sandbox" type="Node2D" unique_id=264478754]
-script = ExtResource("1_qotlx")
-PlayerScene = ExtResource("2_eo7g3")
+script = ExtResource("1_eo7g3")
+playerScene = ExtResource("2_eo7g3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1772164932]
 layer = -1

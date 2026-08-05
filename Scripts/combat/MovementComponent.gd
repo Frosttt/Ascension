@@ -10,7 +10,7 @@ enum Direction { RIGHT, UP, LEFT, DOWN }
 func CalculateVelocity(currentVelocity: Vector2, inputDirection: Vector2, delta: float) -> Vector2:
 	var targetVelocity: Vector2 = inputDirection * maxSpeed
 	var change: float = acceleration
-
+	
 	if (inputDirection.is_zero_approx()):
 		change = deceleration
 	
