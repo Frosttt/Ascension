@@ -18,7 +18,7 @@ func CalculateVelocity(currentVelocity: Vector2, inputDirection: Vector2, delta:
 
 
 static func GetCardinalDirection(input_direction: Vector2) -> Direction:
-	var angle := fposmod(input_direction.angle(), TAU)
+	var angle : float= fposmod(input_direction.angle(), TAU)
 
 	if angle < PI / 4.0 or angle >= 7.0 * PI / 4.0:
 		return Direction.RIGHT

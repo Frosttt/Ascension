@@ -8,6 +8,7 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 
 func activate() -> void:
+	print(activate)
 	monitoring = true;
 
 func deactivate() -> void:

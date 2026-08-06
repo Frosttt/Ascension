@@ -20,6 +20,9 @@ func _input(event: InputEvent) -> void:
 		if (heldWeapon != null):
 			heldWeapon.attack();
 
+func _process(delta: float) -> void:
+	_rotate_weapon_pivot()
+
 func _physics_process(delta: float) -> void:
 	# Probably move this to it's own component later
 
@@ -40,12 +43,12 @@ func _physics_process(delta: float) -> void:
 	velocity = moveComponent.CalculateVelocity(velocity, inputDirection, delta)
 
 	move_and_slide()
-	_rotate_weapon_pivot()
+
 	
 	
 func _rotate_weapon_pivot() -> void:
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	var aim: Vector2 = mouse_pos - global_position;
 	var aim_dir: Vector2 = (aim).normalized()
-	weaponHand.position = aim_dir * 50;
-	weaponHand.rotation = aim_dir.angle()
+	weaponHand.position = aim_dir * 100;
+	weaponHand.rotation = aim_dir.angle() + PI / 2.0

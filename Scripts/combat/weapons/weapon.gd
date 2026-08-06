@@ -8,7 +8,8 @@ func reset() -> void:
 
 func _ready() -> void:
 	reset()
-	
+
 func attack() -> void:
+	print("attack")
 	hitbox.activate()
 	

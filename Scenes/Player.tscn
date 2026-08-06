@@ -16,8 +16,9 @@ size = Vector2(16, 29)
 radius = 17.0
 height = 56.0
 
-[node name="Player" type="CharacterBody2D" unique_id=221499644]
+[node name="Player" type="CharacterBody2D" unique_id=221499644 node_paths=PackedStringArray("heldWeapon")]
 script = ExtResource("1_dewec")
+heldWeapon = NodePath("WeaponPivot/Test-Weapon")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1434121162]
 position = Vector2(0, -11)
