@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cumq4xpohkma1" path="res://Scripts/combat/HealthComponent.gd" id="2_dewec"]
 [ext_resource type="PackedScene" uid="uid://c1hr8r23bdlcc" path="res://Scenes/hurtbox.tscn" id="3_nn08x"]
 [ext_resource type="Script" uid="uid://dwymqqix1kh46" path="res://Scripts/combat/MovementComponent.gd" id="4_5ixxa"]
-[ext_resource type="Script" uid="uid://dsy70hi5r1fbj" path="res://Scripts/combat/attack_component.gd" id="5_5ixxa"]
+[ext_resource type="PackedScene" uid="uid://bggnokee3huv2" path="res://Scenes/test_weapon.tscn" id="6_nn08x"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qbkls"]
 
@@ -46,5 +46,7 @@ script = ExtResource("2_dewec")
 [node name="MovementComponent" type="Node" parent="." unique_id=1078902342]
 script = ExtResource("4_5ixxa")
 
-[node name="AttackComponent" type="Node" parent="." unique_id=1592975005]
-script = ExtResource("5_5ixxa")
+[node name="WeaponPivot" type="Node2D" parent="." unique_id=2083289599]
+
+[node name="Test-Weapon" parent="WeaponPivot" unique_id=1392557374 instance=ExtResource("6_nn08x")]
+position = Vector2(0, 1)

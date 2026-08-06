@@ -3,6 +3,9 @@ extends CharacterBody2D
 
 @onready var moveComponent: MovementComponent = $MovementComponent
 @onready var sprite: Sprite2D = $Sprite
+@onready var weaponHand: Node2D = $WeaponPivot
+@onready var camera: Camera2D = $Camera2D
+@export var heldWeapon: Weapon
 
 var faceDirection: MovementComponent.Direction = MovementComponent.Direction.DOWN
 
@@ -13,7 +16,9 @@ func _init() -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
-	pass
+	if (event.is_action_pressed("Light_Attack")):
+		if (heldWeapon != null):
+			heldWeapon.attack();
 
 func _physics_process(delta: float) -> void:
 	# Probably move this to it's own component later
@@ -35,5 +40,12 @@ func _physics_process(delta: float) -> void:
 	velocity = moveComponent.CalculateVelocity(velocity, inputDirection, delta)
 
 	move_and_slide()
+	_rotate_weapon_pivot()
 	
 	
+func _rotate_weapon_pivot() -> void:
+	var mouse_pos: Vector2 = get_global_mouse_position()
+	var aim: Vector2 = mouse_pos - global_position;
+	var aim_dir: Vector2 = (aim).normalized()
+	weaponHand.position = aim_dir * 50;
+	weaponHand.rotation = aim_dir.angle()

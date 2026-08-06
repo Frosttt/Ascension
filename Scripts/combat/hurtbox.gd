@@ -8,5 +8,12 @@ func _ready() -> void:
 		#pass
 	pass
 
-func on_hit(hitbox: Hitbox2D):
-	Health.TakeDamage(hitbox.damage);
+func activate() -> void:
+	monitoring = true;
+
+func deactivate() -> void:
+	monitoring = false;	
+
+func on_hit(hitbox: Hitbox2D) -> void:
+	if (Health):
+		Health.TakeDamage(hitbox.damage);

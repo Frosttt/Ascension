@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bggnokee3huv2"]
+
+[ext_resource type="Script" uid="uid://b2x4h7yfn3y8d" path="res://Scripts/combat/weapons/weapon.gd" id="1_0gn6l"]
+[ext_resource type="Texture2D" uid="uid://do2lk6p52lvgo" path="res://Sprites/Temp/square.png" id="2_8hkyp"]
+[ext_resource type="Script" uid="uid://cuj6enav7aj66" path="res://Scripts/combat/hitbox.gd" id="3_8hkyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_715ky"]
+size = Vector2(20, 38)
+
+[node name="Test-Weapon" type="Node2D" unique_id=1392557374]
+script = ExtResource("1_0gn6l")
+metadata/_custom_type_script = "uid://b2x4h7yfn3y8d"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1379651073]
+position = Vector2(4.7683716e-07, -9.536743e-07)
+scale = Vector2(0.03811821, 0.07561068)
+texture = ExtResource("2_8hkyp")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=102562937]
+collision_layer = 5
+collision_mask = 3
+script = ExtResource("3_8hkyp")
+metadata/_custom_type_script = "uid://cuj6enav7aj66"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2108903890]
+shape = SubResource("RectangleShape2D_715ky")
+debug_color = Color(0.30566925, 0.62772787, 0, 0.41960785)
