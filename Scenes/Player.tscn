@@ -3,12 +3,14 @@
 [ext_resource type="Script" uid="uid://ccinu7wu74kct" path="res://Scripts/player/PlayerCharacter.gd" id="1_dewec"]
 [ext_resource type="Texture2D" uid="uid://bt8y1g1xwtsy" path="res://Sprites/Temp/Frostttz_MiniPixelx10.png" id="2_5ixxa"]
 [ext_resource type="Script" uid="uid://cumq4xpohkma1" path="res://Scripts/combat/HealthComponent.gd" id="2_dewec"]
+[ext_resource type="PackedScene" uid="uid://c1hr8r23bdlcc" path="res://Scenes/hurtbox.tscn" id="3_nn08x"]
 [ext_resource type="Script" uid="uid://dwymqqix1kh46" path="res://Scripts/combat/MovementComponent.gd" id="4_5ixxa"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_715ky"]
-height = 46.0
+[ext_resource type="Script" uid="uid://dsy70hi5r1fbj" path="res://Scripts/combat/attack_component.gd" id="5_5ixxa"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qbkls"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_715ky"]
+size = Vector2(16, 29)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ka624"]
 radius = 17.0
@@ -25,14 +27,15 @@ texture = ExtResource("2_5ixxa")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1829473302]
 position_smoothing_enabled = true
 
-[node name="HurtBox" type="Area2D" parent="." unique_id=509925688]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1399000753]
-shape = SubResource("CapsuleShape2D_715ky")
-debug_color = Color(0.9783152, 0.1029103, 0.2746668, 0.41960785)
-
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1849202791]
 replication_config = SubResource("SceneReplicationConfig_qbkls")
+
+[node name="Hurtbox" parent="." unique_id=1138241139 instance=ExtResource("3_nn08x")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2129048619]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_715ky")
+debug_color = Color(0.98141795, 0, 0.3753146, 0.41960785)
 
 [node name="MovementCollider" type="CollisionShape2D" parent="." unique_id=1218707510]
 shape = SubResource("CapsuleShape2D_ka624")
@@ -42,3 +45,6 @@ script = ExtResource("2_dewec")
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1078902342]
 script = ExtResource("4_5ixxa")
+
+[node name="AttackComponent" type="Node" parent="." unique_id=1592975005]
+script = ExtResource("5_5ixxa")
