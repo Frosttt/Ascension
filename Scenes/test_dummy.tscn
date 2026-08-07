@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cdiybuughtqno"]
+
+[ext_resource type="Texture2D" uid="uid://bhto3fdwx4a3m" path="res://Sprites/Temp/Test-Dummy.png" id="2_m7ntk"]
+[ext_resource type="PackedScene" uid="uid://c1hr8r23bdlcc" path="res://Scenes/hurtbox.tscn" id="2_smwm6"]
+[ext_resource type="PackedScene" uid="uid://bxvaym0a8k7db" path="res://Scenes/Components/health_component.tscn" id="3_smwm6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7ntk"]
+size = Vector2(25, 52)
+
+[node name="TestDummy" type="Node2D" unique_id=1542581471]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1844309370]
+texture = ExtResource("2_m7ntk")
+
+[node name="Hurtbox" parent="." unique_id=1138241139 node_paths=PackedStringArray("Health") instance=ExtResource("2_smwm6")]
+Health = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1168700879]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_m7ntk")
+debug_color = Color(0.99726564, 0, 0.1793904, 0.41960785)
+
+[node name="HealthComponent" parent="." unique_id=1362919388 instance=ExtResource("3_smwm6")]
+maxHealth = 1000000

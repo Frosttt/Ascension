@@ -14,6 +14,7 @@ func TakeDamage(amount: int) -> int:
 	var previousHp: int  = currentHealth
 	currentHealth = maxi(currentHealth - amount, 0)
 	healthChanged.emit(previousHp, currentHealth, maxHealth)
+	print("[%s]Health Changed: %s -> %s" % [get_parent().name, previousHp, currentHealth]);
 	
 	if (currentHealth <= 0):
 		died.emit(amount)

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ccinu7wu74kct" path="res://Scripts/player/PlayerCharacter.gd" id="1_dewec"]
 [ext_resource type="Texture2D" uid="uid://bt8y1g1xwtsy" path="res://Sprites/Temp/Frostttz_MiniPixelx10.png" id="2_5ixxa"]
-[ext_resource type="Script" uid="uid://cumq4xpohkma1" path="res://Scripts/combat/HealthComponent.gd" id="2_dewec"]
 [ext_resource type="PackedScene" uid="uid://c1hr8r23bdlcc" path="res://Scenes/hurtbox.tscn" id="3_nn08x"]
 [ext_resource type="Script" uid="uid://dwymqqix1kh46" path="res://Scripts/combat/MovementComponent.gd" id="4_5ixxa"]
+[ext_resource type="PackedScene" uid="uid://bxvaym0a8k7db" path="res://Scenes/Components/health_component.tscn" id="4_nn08x"]
 [ext_resource type="PackedScene" uid="uid://bggnokee3huv2" path="res://Scenes/test_weapon.tscn" id="6_nn08x"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qbkls"]
@@ -27,6 +27,7 @@ texture = ExtResource("2_5ixxa")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1829473302]
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1849202791]
 replication_config = SubResource("SceneReplicationConfig_qbkls")
@@ -41,8 +42,7 @@ debug_color = Color(0.98141795, 0, 0.3753146, 0.41960785)
 [node name="MovementCollider" type="CollisionShape2D" parent="." unique_id=1218707510]
 shape = SubResource("CapsuleShape2D_ka624")
 
-[node name="HealthComponent" type="Node" parent="." unique_id=1434869978]
-script = ExtResource("2_dewec")
+[node name="HealthComponent" parent="." unique_id=1362919388 instance=ExtResource("4_nn08x")]
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1078902342]
 script = ExtResource("4_5ixxa")

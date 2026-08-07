@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwyyc6f60ksrd" path="res://Scripts/levels/TestLevel.gd" id="1_eo7g3"]
 [ext_resource type="PackedScene" uid="uid://5lbwiqqmetql" path="res://Scenes/Player.tscn" id="2_eo7g3"]
+[ext_resource type="PackedScene" uid="uid://cdiybuughtqno" path="res://Scenes/test_dummy.tscn" id="3_xqu6k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_715ky"]
 size = Vector2(1280, 32)
@@ -45,6 +46,9 @@ shape = SubResource("RectangleShape2D_ka624")
 [node name="BottomWall" type="CollisionShape2D" parent="Walls" unique_id=364183625]
 position = Vector2(1264, 360)
 shape = SubResource("RectangleShape2D_ka624")
+
+[node name="TestDummy" parent="." unique_id=1542581471 instance=ExtResource("3_xqu6k")]
+position = Vector2(644, 201)
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1634354298]
 position = Vector2(639, 496)
