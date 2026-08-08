@@ -15,7 +15,13 @@ func _ready() -> void:
 func _init() -> void:
 	pass
 
+
+func _enter_tree() -> void:
+	set_multiplayer_authority(name.to_int())
+
 func _input(event: InputEvent) -> void:
+	if (!is_multiplayer_authority()): return;
+	
 	if (event.is_action_pressed("Light_Attack")):
 		if (heldWeapon != null):
 			heldWeapon.attack();
@@ -25,6 +31,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Probably move this to it's own component later
+
+	if (!is_multiplayer_authority()): return;
 
 	var inputDirection: Vector2 = Input.get_vector(
 		"Move_Left", 

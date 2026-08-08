@@ -8,6 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://bggnokee3huv2" path="res://Scenes/test_weapon.tscn" id="6_nn08x"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qbkls"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("WeaponPivot:position")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("WeaponPivot:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_715ky"]
 size = Vector2(16, 29)

@@ -8,7 +8,8 @@ extends Node2D
 
 
 func _ready() -> void:
-	SpawnPlayer()
+	#SpawnPlayer()
+	pass
 	
 	
 func SpawnPlayer() -> PlayerCharacter:
