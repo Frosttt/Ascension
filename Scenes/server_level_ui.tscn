@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://btcj7hr7572g2"]
 
-[ext_resource type="Script" uid="uid://c4w46qxm2jogn" path="res://scripts/net/server_level_ui.gd" id="1_kvoqe"]
+[ext_resource type="Script" uid="uid://c4w46qxm2jogn" path="res://Scripts/net/server_level_ui.gd" id="1_kvoqe"]
 
 [node name="ServerLevelUI" type="Control" unique_id=530045848]
 layout_mode = 3

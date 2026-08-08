@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var playerList: Node2D = $Players
 @onready var playerSpawn: Marker2D = $PlayerSpawn
+@onready var multiPlayerSpawner: MultiplayerSpawner = $MultiplayerSpawner
 
 
 func _ready() -> void:

@@ -6,6 +6,9 @@ extends MultiplayerSpawner
 func _ready() -> void:
 	multiplayer.peer_connected.connect(spawn_player)
 
+	NetworkHandler.server_started.connect(spawn_host_player)
+
+
 func spawn_player(id: int) -> void:
 	if (!multiplayer.is_server()): return
 
@@ -13,3 +16,8 @@ func spawn_player(id: int) -> void:
 	player.name = str(id);
 
 	get_node(spawn_path).call_deferred("add_child", player)
+
+func spawn_host_player() -> void:
+	if (!multiplayer.is_server()): return
+	
+	spawn_player(multiplayer.get_unique_id())
