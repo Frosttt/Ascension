@@ -27,6 +27,7 @@ func _input(event: InputEvent) -> void:
 			heldWeapon.attack();
 
 func _process(delta: float) -> void:
+	if (!is_multiplayer_authority()): return;
 	_rotate_weapon_pivot()
 
 func _physics_process(delta: float) -> void:
