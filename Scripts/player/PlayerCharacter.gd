@@ -7,10 +7,15 @@ extends CharacterBody2D
 @onready var camera: Camera2D = $Camera2D
 @export var heldWeapon: Weapon
 
+# networking
+var peer_id: int
+
 var faceDirection: MovementComponent.Direction = MovementComponent.Direction.DOWN
 
 func _ready() -> void:
-	pass
+	peer_id = name.to_int()
+	set_multiplayer_authority(peer_id)
+	camera.enabled = is_multiplayer_authority()
 
 func _init() -> void:
 	pass
