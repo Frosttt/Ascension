@@ -15,7 +15,7 @@ size = Vector2(32, 720)
 [node name="Sandbox" type="Node2D" unique_id=264478754]
 script = ExtResource("1_eo7g3")
 playerScene = ExtResource("2_eo7g3")
-_play_local = true
+playLocal = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1772164932]
 layer = -1

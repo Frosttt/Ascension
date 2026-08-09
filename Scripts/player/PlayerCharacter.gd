@@ -9,6 +9,7 @@ extends CharacterBody2D
 
 # networking
 var peer_id: int
+var _locally_controlled;
 
 var faceDirection: MovementComponent.Direction = MovementComponent.Direction.DOWN
 
@@ -25,20 +26,20 @@ func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 
 func _input(event: InputEvent) -> void:
-	if (!is_multiplayer_authority()): return;
+	if (!is_locally_controlled()): return;
 	
 	if (event.is_action_pressed("Light_Attack")):
 		if (heldWeapon != null):
 			heldWeapon.attack();
 
 func _process(delta: float) -> void:
-	if (!is_multiplayer_authority()): return;
+	if (!is_locally_controlled()): return;
 	_rotate_weapon_pivot()
 
 func _physics_process(delta: float) -> void:
 	# Probably move this to it's own component later
 
-	if (!is_multiplayer_authority()): return;
+	if (!is_locally_controlled()): return;
 
 	var inputDirection: Vector2 = Input.get_vector(
 		"Move_Left", 
@@ -66,3 +67,10 @@ func _rotate_weapon_pivot() -> void:
 	var aim_dir: Vector2 = (aim).normalized()
 	weaponHand.position = aim_dir * 100;
 	weaponHand.rotation = aim_dir.angle() + PI / 2.0
+
+func is_locally_controlled() -> bool:
+	return _locally_controlled
+
+func set_local_control(enabled: bool) -> void:
+	_locally_controlled = true;
+	camera.enabled = true;

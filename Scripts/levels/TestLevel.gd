@@ -2,15 +2,19 @@ class_name TestLevel
 extends Node2D
 
 @export var playerScene: PackedScene
+@export var _play_local: bool = false;
 
 @onready var playerList: Node2D = $Players
 @onready var playerSpawn: Marker2D = $PlayerSpawn
 @onready var multiPlayerSpawner: MultiplayerSpawner = $MultiplayerSpawner
 
 
+
+
 func _ready() -> void:
-	#SpawnPlayer()
-	pass
+	if (_play_local):
+		var local_player: PlayerCharacter = SpawnPlayer()
+		local_player.set_local_control(true)
 	
 	
 func SpawnPlayer() -> PlayerCharacter:
