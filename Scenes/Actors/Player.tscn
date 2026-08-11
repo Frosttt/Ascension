@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bxvaym0a8k7db" path="res://Scenes/Components/health_component.tscn" id="4_08ldf"]
 [ext_resource type="Script" uid="uid://dwymqqix1kh46" path="res://Scripts/combat/MovementComponent.gd" id="5_jfvij"]
 [ext_resource type="Texture2D" uid="uid://biamg40c8vp5q" path="res://Sprites/Temp/arrow_indicator.png" id="6_cdutm"]
-[ext_resource type="PackedScene" uid="uid://bggnokee3huv2" path="res://Scenes/test_weapon.tscn" id="7_r2kji"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qbkls"]
 properties/0/path = NodePath(".:position")
@@ -26,9 +25,8 @@ size = Vector2(16, 29)
 radius = 17.0
 height = 56.0
 
-[node name="Player" type="CharacterBody2D" unique_id=221499644 node_paths=PackedStringArray("heldWeapon")]
+[node name="Player" type="CharacterBody2D" unique_id=221499644]
 script = ExtResource("1_pdd2n")
-heldWeapon = NodePath("WeaponPivot/Test-Weapon")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1434121162]
 position = Vector2(0, -11)
@@ -63,6 +61,3 @@ script = ExtResource("5_jfvij")
 [node name="AimIndicator" type="Sprite2D" parent="WeaponPivot" unique_id=908323229]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_cdutm")
-
-[node name="Test-Weapon" parent="WeaponPivot" unique_id=1392557374 instance=ExtResource("7_r2kji")]
-position = Vector2(0, 1)

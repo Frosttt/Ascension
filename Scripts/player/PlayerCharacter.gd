@@ -5,7 +5,9 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite
 @onready var weaponHand: Node2D = $WeaponPivot
 @onready var camera: Camera2D = $Camera2D
-@export var heldWeapon: Weapon
+@export var starting_weapon: PackedScene = null
+var heldWeapon: Weapon
+
 
 # networking
 var peer_id: int
@@ -17,6 +19,10 @@ func _ready() -> void:
 	peer_id = name.to_int()
 	set_multiplayer_authority(peer_id)
 	camera.enabled = is_multiplayer_authority()
+
+	if (starting_weapon):
+		equip_weapon(starting_weapon)
+
 
 func _init() -> void:
 	pass
@@ -59,7 +65,15 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
+func equip_weapon(weapon_scene: PackedScene) -> void:
+	var weapon: Weapon = weapon_scene.instantiate() as Weapon
+
+	if (weapon == null):
+		push_error("Supplied scene does not supply a weapon")
 	
+	heldWeapon = weapon;
+	weaponHand.add_child(heldWeapon)
 	
 func _rotate_weapon_pivot() -> void:
 	var mouse_pos: Vector2 = get_global_mouse_position()
