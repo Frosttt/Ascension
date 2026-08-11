@@ -55,8 +55,9 @@ shape = SubResource("CapsuleShape2D_ka624")
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1078902342]
 script = ExtResource("5_jfvij")
+dash_cooldown = 0.5
 dash_duration = 0.1
-dash_distance = 50.0
+dash_distance = 75.0
 
 [node name="WeaponPivot" type="Node2D" parent="." unique_id=2083289599]
 

@@ -4,6 +4,8 @@ extends Node
 @export var max_speed: float = 300.0
 @export var acceleration: float = 1200.0
 @export var deceleration: float = 1600.0
+@export var over_speed_tolerance: float = 50.0
+var braking_speed: float = 4500.0
 
 var _move_state: MoveState = MoveState.NORMAL
 var _previous_move_state = MoveState.NORMAL
@@ -17,6 +19,7 @@ var dash_duration_timer: Timer
 var dash_cooldown_timer: Timer
 var _dash_direction: Vector2
 @export var dash_distance: float = 100;
+@export var dash_max_speed_ratio: float = .25 # Number between 0 to 1, what portion of time does it take to reach max speed
 var _dash_acceleration: float = 0
 var _dash_velocity: float = 0 
 
@@ -30,6 +33,8 @@ enum MoveState { NORMAL, DASH, IMMOBILE}
 func _ready() -> void:
 	if (dash_allowed_immediate):
 		enable_dash(true)
+	# normalize
+	dash_max_speed_ratio = clampf(dash_max_speed_ratio, 0, 1)
 
 
 func CalculateVelocity(current_velocity: Vector2, input_direction: Vector2, delta: float) -> Vector2:
@@ -37,18 +42,27 @@ func CalculateVelocity(current_velocity: Vector2, input_direction: Vector2, delt
 	var change: float = 0
 	
 	if (_move_state == MoveState.NORMAL):
-		target_velocity = input_direction * max_speed
-		change = acceleration
-
-		if (input_direction.is_zero_approx()):
-			change = deceleration
+		return calculate_normal_movement(current_velocity, input_direction, delta)
 	
 	if (_move_state == MoveState.DASH):
-		target_velocity = _dash_direction * _dash_velocity
-		change = _dash_acceleration
+		return calculate_dash_velocity(current_velocity, delta)
 	
 	return current_velocity.move_toward(target_velocity, change * delta)
 
+func calculate_normal_movement(current_velocity: Vector2, input_direction: Vector2, delta: float) -> Vector2:
+		var target_velocity: Vector2 = input_direction * max_speed
+		var change: float = acceleration
+
+		
+		var speed_limit: float = max_speed + over_speed_tolerance
+		var is_over_speed: bool = current_velocity.length_squared() > speed_limit * speed_limit
+		
+		if (is_over_speed):
+			change = braking_speed
+		elif (input_direction.is_zero_approx()):
+			change = deceleration
+
+		return current_velocity.move_toward(target_velocity, change * delta)
 
 static func get_cardinal_direction(input_direction: Vector2) -> Direction:
 	var angle : float= fposmod(input_direction.angle(), TAU)
@@ -103,6 +117,7 @@ func can_dash() -> bool:
 func _dash_finished() -> void:
 	change_move_state(MoveState.NORMAL)
 	dash_finished.emit()
+	print("Dash Finished")
 
 
 func change_move_state(new_state: MoveState) -> MoveState:
@@ -123,3 +138,11 @@ func Dash(normalized_input_vector: Vector2) -> void:
 	_dash_direction = normalized_input_vector
 	dash_duration_timer.start()
 	dash_cooldown_timer.start()
+	print("Dash")
+
+func calculate_dash_velocity(current_velocity: Vector2, delta: float) -> Vector2:
+	var target_velocity : Vector2= _dash_direction * _dash_velocity
+	return current_velocity.move_toward(
+		target_velocity,
+		_dash_acceleration * delta
+	)

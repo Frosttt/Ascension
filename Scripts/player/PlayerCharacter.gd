@@ -39,7 +39,7 @@ func _input(event: InputEvent) -> void:
 		if (heldWeapon != null):
 			heldWeapon.attack();
 	
-	if (event.is_action_pressed("Dash")):
+	if (event.is_action_pressed("Dash") && moveComponent.can_dash()):
 		_dash_pressed = true
 
 func _process(delta: float) -> void:
@@ -67,6 +67,7 @@ func _physics_process(delta: float) -> void:
 
 	if (_dash_pressed && moveComponent.can_dash()):
 		moveComponent.Dash(input_direction)
+		_dash_pressed = false
 	
 	velocity = moveComponent.CalculateVelocity(velocity, input_direction, delta)
 
