@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dkcokiffseol8"]
 
-[ext_resource type="Script" uid="uid://bwyyc6f60ksrd" path="res://Scripts/levels/TestLevel.gd" id="1_eo7g3"]
-[ext_resource type="PackedScene" uid="uid://5lbwiqqmetql" path="res://Scenes/Player.tscn" id="2_eo7g3"]
-[ext_resource type="PackedScene" uid="uid://btcj7hr7572g2" path="res://Scenes/server_level_ui.tscn" id="3_n1lsy"]
-[ext_resource type="PackedScene" uid="uid://cdiybuughtqno" path="res://Scenes/test_dummy.tscn" id="3_xqu6k"]
-[ext_resource type="Script" uid="uid://00u3e6qpsi7p" path="res://Scripts/net/AscensionMultiSpawner.gd" id="4_j25i0"]
+[ext_resource type="Script" uid="uid://bwyyc6f60ksrd" path="res://Scripts/levels/TestLevel.gd" id="1_x0syu"]
+[ext_resource type="PackedScene" uid="uid://5lbwiqqmetql" path="res://Scenes/Actors/Player.tscn" id="2_an1g7"]
+[ext_resource type="PackedScene" uid="uid://btcj7hr7572g2" path="res://Scenes/server_level_ui.tscn" id="3_3k1mc"]
+[ext_resource type="PackedScene" uid="uid://cdiybuughtqno" path="res://Scenes/Actors/test_dummy.tscn" id="4_fdxam"]
+[ext_resource type="Script" uid="uid://00u3e6qpsi7p" path="res://Scripts/net/AscensionMultiSpawner.gd" id="5_2r2wj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_715ky"]
 size = Vector2(1280, 32)
@@ -13,8 +13,8 @@ size = Vector2(1280, 32)
 size = Vector2(32, 720)
 
 [node name="Sandbox" type="Node2D" unique_id=264478754]
-script = ExtResource("1_eo7g3")
-playerScene = ExtResource("2_eo7g3")
+script = ExtResource("1_x0syu")
+playerScene = ExtResource("2_an1g7")
 _play_local = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1772164932]
@@ -32,7 +32,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.433493, 0.433493, 0.433493, 1)
 
-[node name="ServerLevelUI" parent="CanvasLayer" unique_id=530045848 instance=ExtResource("3_n1lsy")]
+[node name="ServerLevelUI" parent="CanvasLayer" unique_id=530045848 instance=ExtResource("3_3k1mc")]
 z_index = 1
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1234288785]
@@ -53,7 +53,7 @@ shape = SubResource("RectangleShape2D_ka624")
 position = Vector2(1264, 360)
 shape = SubResource("RectangleShape2D_ka624")
 
-[node name="TestDummy" parent="." unique_id=1542581471 instance=ExtResource("3_xqu6k")]
+[node name="TestDummy" parent="." unique_id=1542581471 instance=ExtResource("4_fdxam")]
 position = Vector2(644, 201)
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1634354298]
@@ -67,5 +67,5 @@ position = Vector2(643, 200)
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=223192308]
 _spawnable_scenes = PackedStringArray("uid://5lbwiqqmetql")
 spawn_path = NodePath("../PlayerSpawn")
-script = ExtResource("4_j25i0")
-network_player = ExtResource("2_eo7g3")
+script = ExtResource("5_2r2wj")
+network_player = ExtResource("2_an1g7")

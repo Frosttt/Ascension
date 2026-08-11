@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cdiybuughtqno"]
 
 [ext_resource type="Texture2D" uid="uid://bhto3fdwx4a3m" path="res://Sprites/Temp/Test-Dummy.png" id="2_m7ntk"]
-[ext_resource type="PackedScene" uid="uid://c1hr8r23bdlcc" path="res://Scenes/hurtbox.tscn" id="2_smwm6"]
+[ext_resource type="PackedScene" uid="uid://c1hr8r23bdlcc" path="res://Scenes/Components/hurtbox.tscn" id="2_smwm6"]
 [ext_resource type="PackedScene" uid="uid://bxvaym0a8k7db" path="res://Scenes/Components/health_component.tscn" id="3_smwm6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7ntk"]

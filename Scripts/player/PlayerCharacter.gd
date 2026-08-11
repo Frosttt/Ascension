@@ -9,7 +9,7 @@ extends CharacterBody2D
 
 # networking
 var peer_id: int
-var _locally_controlled;
+var _locally_controlled: bool = false;
 
 var faceDirection: MovementComponent.Direction = MovementComponent.Direction.DOWN
 
