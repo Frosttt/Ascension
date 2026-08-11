@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var starting_weapon: PackedScene = null
 var heldWeapon: Weapon
 
+var _dash_pressed: bool = false;
 
 # networking
 var peer_id: int
@@ -37,6 +38,9 @@ func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("Light_Attack")):
 		if (heldWeapon != null):
 			heldWeapon.attack();
+	
+	if (event.is_action_pressed("Dash")):
+		_dash_pressed = true
 
 func _process(delta: float) -> void:
 	if (!is_locally_controlled()): return;
@@ -47,21 +51,24 @@ func _physics_process(delta: float) -> void:
 
 	if (!is_locally_controlled()): return;
 
-	var inputDirection: Vector2 = Input.get_vector(
+	var input_direction: Vector2 = Input.get_vector(
 		"Move_Left", 
 		"Move_Right", 
 		"Move_Up", 
 		"Move_Down")
 	
-	if (not inputDirection.is_zero_approx()):
-		faceDirection = MovementComponent.GetCardinalDirection(inputDirection)
+	if (not input_direction.is_zero_approx()):
+		faceDirection = MovementComponent.get_cardinal_direction(input_direction)
 	
 	if (faceDirection == MovementComponent.Direction.LEFT):
 		sprite.scale.x = -abs(sprite.scale.x)
 	elif (faceDirection == MovementComponent.Direction.RIGHT):
 		sprite.scale.x = abs(sprite.scale.x)
 
-	velocity = moveComponent.CalculateVelocity(velocity, inputDirection, delta)
+	if (_dash_pressed && moveComponent.can_dash()):
+		moveComponent.Dash(input_direction)
+	
+	velocity = moveComponent.CalculateVelocity(velocity, input_direction, delta)
 
 	move_and_slide()
 
