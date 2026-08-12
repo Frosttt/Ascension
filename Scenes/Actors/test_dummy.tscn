@@ -12,7 +12,7 @@ size = Vector2(25, 47)
 
 [node name="TestDummy" type="CharacterBody2D" unique_id=1812034742]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1844309370]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1844309370]
 texture = ExtResource("2_m7ntk")
 
 [node name="Hurtbox" parent="." unique_id=1138241139 node_paths=PackedStringArray("Health") instance=ExtResource("2_smwm6")]

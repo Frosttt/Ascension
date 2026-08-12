@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://5lbwiqqmetql"]
 
 [ext_resource type="Script" uid="uid://ccinu7wu74kct" path="res://Scripts/player/PlayerCharacter.gd" id="1_pdd2n"]
+[ext_resource type="PackedScene" uid="uid://bggnokee3huv2" path="res://Scenes/test_weapon.tscn" id="2_pdd2n"]
 [ext_resource type="Texture2D" uid="uid://bt8y1g1xwtsy" path="res://Sprites/Temp/Frostttz_MiniPixelx10.png" id="2_rplui"]
 [ext_resource type="PackedScene" uid="uid://c1hr8r23bdlcc" path="res://Scenes/Components/hurtbox.tscn" id="3_ut0tw"]
 [ext_resource type="PackedScene" uid="uid://bxvaym0a8k7db" path="res://Scenes/Components/health_component.tscn" id="4_08ldf"]
@@ -27,6 +28,7 @@ height = 56.0
 
 [node name="Player" type="CharacterBody2D" unique_id=221499644]
 script = ExtResource("1_pdd2n")
+starting_weapon = ExtResource("2_pdd2n")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1434121162]
 position = Vector2(0, -11)
