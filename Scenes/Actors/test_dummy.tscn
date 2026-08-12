@@ -7,7 +7,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7ntk"]
 size = Vector2(25, 52)
 
-[node name="TestDummy" type="Node2D" unique_id=1542581471]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vasgf"]
+size = Vector2(25, 47)
+
+[node name="TestDummy" type="CharacterBody2D" unique_id=1812034742]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1844309370]
 texture = ExtResource("2_m7ntk")
@@ -22,3 +25,7 @@ debug_color = Color(0.99726564, 0, 0.1793904, 0.41960785)
 
 [node name="HealthComponent" parent="." unique_id=1362919388 instance=ExtResource("3_smwm6")]
 maxHealth = 1000000
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=208028873]
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_vasgf")

@@ -5,7 +5,7 @@ extends Node
 @export var acceleration: float = 1200.0
 @export var deceleration: float = 1600.0
 @export var over_speed_tolerance: float = 50.0
-var braking_speed: float = 4500.0
+var braking_speed: float = 5000.0
 
 var _move_state: MoveState = MoveState.NORMAL
 var _previous_move_state = MoveState.NORMAL
