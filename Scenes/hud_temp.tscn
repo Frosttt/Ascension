@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dx4a6torkbcqp"]
+
+[ext_resource type="Script" uid="uid://bhdtimtmxigah" path="res://Scripts/UI/HUD.gd" id="1_rhyda"]
+
+[node name="HUD" type="CanvasLayer" unique_id=38480828]
+script = ExtResource("1_rhyda")
+
+[node name="Control" type="Control" parent="." unique_id=1985849843]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1669670641]
+layout_mode = 0
+offset_right = 88.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer" unique_id=1608077430]
+layout_mode = 2
+text = "Health: 100"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control" unique_id=1235967146]
+layout_mode = 0
+offset_right = 130.0
+offset_bottom = 40.0
+value = 21.0

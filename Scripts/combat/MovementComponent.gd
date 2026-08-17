@@ -8,7 +8,7 @@ extends Node
 var braking_speed: float = 5000.0
 
 var _move_state: MoveState = MoveState.NORMAL
-var _previous_move_state = MoveState.NORMAL
+var _previous_move_state: MoveState = MoveState.NORMAL
 
 # Dash
 var _dash_allowed: bool = false

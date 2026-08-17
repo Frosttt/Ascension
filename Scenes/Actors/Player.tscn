@@ -37,6 +37,7 @@ texture = ExtResource("2_rplui")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1829473302]
 enabled = false
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 

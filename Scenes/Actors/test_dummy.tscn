@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bhto3fdwx4a3m" path="res://Sprites/Temp/Test-Dummy.png" id="2_m7ntk"]
 [ext_resource type="PackedScene" uid="uid://c1hr8r23bdlcc" path="res://Scenes/Components/hurtbox.tscn" id="2_smwm6"]
 [ext_resource type="PackedScene" uid="uid://bxvaym0a8k7db" path="res://Scenes/Components/health_component.tscn" id="3_smwm6"]
+[ext_resource type="PackedScene" uid="uid://f65bho843ydg" path="res://Scenes/health_bar.tscn" id="4_inrso"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7ntk"]
 size = Vector2(25, 52)
@@ -24,8 +25,13 @@ shape = SubResource("RectangleShape2D_m7ntk")
 debug_color = Color(0.99726564, 0, 0.1793904, 0.41960785)
 
 [node name="HealthComponent" parent="." unique_id=1362919388 instance=ExtResource("3_smwm6")]
-maxHealth = 1000000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=208028873]
 position = Vector2(0.5, 3.5)
 shape = SubResource("RectangleShape2D_vasgf")
+
+[node name="HealthBar" parent="." unique_id=984813684 node_paths=PackedStringArray("health_comp") instance=ExtResource("4_inrso")]
+offset_top = -40.000004
+offset_bottom = -13.000004
+scale = Vector2(0.24314164, 0.1941753)
+health_comp = NodePath("../HealthComponent")

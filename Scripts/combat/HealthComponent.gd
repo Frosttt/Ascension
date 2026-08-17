@@ -1,36 +1,36 @@
 class_name HealthComponent
 extends Node
 
-signal healthChanged(previous: int, current: int, max: int)
+signal health_changed(previous: int, current: int, max: int)
 signal died(damageRecieved: int)
 
-@export var maxHealth: int = 100
-var currentHealth: int
+@export var max_health: int = 100
+var current_health: int
 
 func _ready() -> void:
-	currentHealth = maxHealth;
+	current_health = max_health;
 
 func TakeDamage(amount: int) -> int:
-	var previousHp: int  = currentHealth
-	currentHealth = maxi(currentHealth - amount, 0)
-	healthChanged.emit(previousHp, currentHealth, maxHealth)
-	print("[%s]Health Changed: %s -> %s" % [get_parent().name, previousHp, currentHealth]);
+	var previousHp: int  = current_health
+	current_health = maxi(current_health - amount, 0)
+	health_changed.emit(previousHp, current_health, max_health)
+	print("[%s]Health Changed: %s -> %s" % [get_parent().name, previousHp, current_health]);
 	
-	if (currentHealth <= 0):
+	if (current_health <= 0):
 		died.emit(amount)
 
-	return currentHealth
+	return current_health
 
 func Kill() -> void:
-	var damage: int = currentHealth;
-	currentHealth = 0
+	var damage: int = current_health;
+	current_health = 0
 	died.emit(damage);
 
 func Reset() -> void:
-	currentHealth = maxHealth
+	current_health = max_health
 
 func IsDead() -> bool:
-	return currentHealth <= 0;
+	return current_health <= 0;
 
 func IsAlive() -> bool:
-	return currentHealth > 0;
+	return current_health > 0;
