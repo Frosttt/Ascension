@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dkcokiffseol8"]
+
+[ext_resource type="Script" uid="uid://bwyyc6f60ksrd" path="res://Scripts/levels/TestLevel.gd" id="1_x0syu"]
+[ext_resource type="PackedScene" uid="uid://5lbwiqqmetql" path="res://Scenes/Actors/Player.tscn" id="2_an1g7"]
+[ext_resource type="PackedScene" uid="uid://btcj7hr7572g2" path="res://Scenes/server_level_ui.tscn" id="3_3k1mc"]
+[ext_resource type="PackedScene" uid="uid://cdiybuughtqno" path="res://Scenes/Actors/test_dummy.tscn" id="4_fdxam"]
+[ext_resource type="Script" uid="uid://00u3e6qpsi7p" path="res://Scripts/net/AscensionMultiSpawner.gd" id="5_2r2wj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_715ky"]
+size = Vector2(1280, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka624"]
+size = Vector2(32, 720)
+
+[node name="Sandbox" type="Node2D" unique_id=264478754]
+script = ExtResource("1_x0syu")
+playerScene = ExtResource("2_an1g7")
+_play_local = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1772164932]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=915373034]
+custom_maximum_size = Vector2(1920, 1080)
+anchors_preset = -1
+anchor_right = 3.65
+anchor_bottom = 1.8500001
+offset_right = -2924.8003
+offset_bottom = -478.80005
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.433493, 0.433493, 0.433493, 1)
+
+[node name="ServerLevelUI" parent="CanvasLayer" unique_id=530045848 instance=ExtResource("3_3k1mc")]
+z_index = 1
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1234288785]
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls" unique_id=1989730568]
+position = Vector2(640, 16)
+shape = SubResource("RectangleShape2D_715ky")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls" unique_id=1919690892]
+position = Vector2(640, 704)
+shape = SubResource("RectangleShape2D_715ky")
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls" unique_id=749173737]
+position = Vector2(16, 360)
+shape = SubResource("RectangleShape2D_ka624")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls" unique_id=364183625]
+position = Vector2(1264, 360)
+shape = SubResource("RectangleShape2D_ka624")
+
+[node name="TestDummy" parent="." unique_id=1542581471 instance=ExtResource("4_fdxam")]
+position = Vector2(644, 201)
+
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1634354298]
+position = Vector2(639, 496)
+
+[node name="EnemySpawn" type="Marker2D" parent="." unique_id=1359700889]
+position = Vector2(643, 200)
+
+[node name="Players" type="Node2D" parent="." unique_id=117223138]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=223192308]
+_spawnable_scenes = PackedStringArray("uid://5lbwiqqmetql")
+spawn_path = NodePath("../PlayerSpawn")
+script = ExtResource("5_2r2wj")
+network_player = ExtResource("2_an1g7")

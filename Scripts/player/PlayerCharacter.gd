@@ -44,7 +44,9 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if (!is_locally_controlled()): return;
-	_rotate_weapon_pivot()
+
+	if (heldWeapon.is_attacking() == false):
+		_rotate_weapon_pivot()
 
 func _physics_process(delta: float) -> void:
 	# Probably move this to it's own component later
@@ -87,7 +89,7 @@ func _rotate_weapon_pivot() -> void:
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	var aim: Vector2 = mouse_pos - global_position;
 	var aim_dir: Vector2 = (aim).normalized()
-	weaponHand.position = aim_dir * 100;
+	weaponHand.position = aim_dir * 10;
 	weaponHand.rotation = aim_dir.angle() + PI / 2.0
 
 func is_locally_controlled() -> bool:
