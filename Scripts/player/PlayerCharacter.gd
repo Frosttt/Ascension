@@ -86,6 +86,8 @@ func equip_weapon(weapon_scene: PackedScene) -> void:
 	weaponHand.add_child(heldWeapon)
 	
 func _rotate_weapon_pivot() -> void:
+	# TODO: Implement for controller pivot
+	# Ignore if right thumbsstick isnt aiming, fallback to move direction
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	var aim: Vector2 = mouse_pos - global_position;
 	var aim_dir: Vector2 = (aim).normalized()

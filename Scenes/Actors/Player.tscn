@@ -49,7 +49,9 @@ follow_speed = 0.255
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1849202791]
 replication_config = SubResource("SceneReplicationConfig_qbkls")
 
-[node name="Hurtbox" parent="." unique_id=1138241139 instance=ExtResource("3_ut0tw")]
+[node name="Hurtbox" parent="." unique_id=1138241139 node_paths=PackedStringArray("Health") instance=ExtResource("3_ut0tw")]
+collision_layer = 11
+Health = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2129048619]
 position = Vector2(0, -0.5)

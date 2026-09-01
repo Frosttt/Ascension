@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bo4fd6sif6g3q"]
+
+[ext_resource type="Script" uid="uid://cuj6enav7aj66" path="res://Scripts/combat/hitbox.gd" id="1_otso3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_715ky"]
+size = Vector2(112, 24)
+
+[node name="DamageZone" type="Node2D" unique_id=1058452553]
+
+[node name="Hitbox2D" type="Area2D" parent="." unique_id=525678147]
+collision_layer = 21
+collision_mask = 8
+script = ExtResource("1_otso3")
+metadata/_custom_type_script = "uid://cuj6enav7aj66"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox2D" unique_id=674257487]
+position = Vector2(56, 12)
+shape = SubResource("RectangleShape2D_715ky")
+debug_color = Color(0.94707054, 0.20670995, 0.2761882, 0.41960785)
+
+[node name="Label" type="Label" parent="." unique_id=1762695892]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Damage Zone"

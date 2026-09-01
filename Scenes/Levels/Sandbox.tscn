@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://btcj7hr7572g2" path="res://Scenes/server_level_ui.tscn" id="3_3k1mc"]
 [ext_resource type="PackedScene" uid="uid://cdiybuughtqno" path="res://Scenes/Actors/test_dummy.tscn" id="4_fdxam"]
 [ext_resource type="Script" uid="uid://00u3e6qpsi7p" path="res://Scripts/net/AscensionMultiSpawner.gd" id="5_2r2wj"]
+[ext_resource type="PackedScene" uid="uid://bo4fd6sif6g3q" path="res://Scenes/damage_zone.tscn" id="6_an1g7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_715ky"]
 size = Vector2(1280, 32)
@@ -70,3 +71,6 @@ _spawnable_scenes = PackedStringArray("uid://5lbwiqqmetql")
 spawn_path = NodePath("../PlayerSpawn")
 script = ExtResource("5_2r2wj")
 network_player = ExtResource("2_an1g7")
+
+[node name="DamageZone" parent="." unique_id=1058452553 instance=ExtResource("6_an1g7")]
+position = Vector2(765, 197)
