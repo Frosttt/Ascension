@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dolv4h5w31yqi"]
+
+[ext_resource type="PackedScene" uid="uid://f65bho843ydg" path="res://Scenes/health_bar.tscn" id="1_vkk4g"]
+[ext_resource type="Script" uid="uid://bhdtimtmxigah" path="res://Scripts/UI/HUD.gd" id="1_y31ga"]
+
+[node name="PlayerHUD" type="Control" unique_id=1506417482 node_paths=PackedStringArray("_health_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y31ga")
+_health_bar = NodePath("CanvasLayer/HealthBar")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=8015586]
+
+[node name="HealthBar" parent="CanvasLayer" unique_id=984813684 instance=ExtResource("1_vkk4g")]
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 406.0
+offset_bottom = 24.0
+scale = Vector2(1, 1)
+size_flags_horizontal = 0

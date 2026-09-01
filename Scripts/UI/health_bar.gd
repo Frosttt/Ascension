@@ -1,4 +1,4 @@
-class_name Health_Bar
+class_name HealthBar
 extends ProgressBar
 
 
@@ -12,24 +12,30 @@ var prev_health: float = 0
 
 func _ready() -> void:
 	damage_bar_timer.timeout.connect(_on_timer_timeout)
+	min_value = 0;
+	max_value = 100;
+	#value = 100;
 	if (health_comp):
 		bind_health(health_comp)
 
 
 func bind_health(_healthComp: HealthComponent) -> void:
 	health_comp = _healthComp
-	value = health_comp.current_health
+
 	max_value = health_comp.max_health
+	value = health_comp.current_health
+	prev_health = health_comp.max_health
 	#modulate.a = 0.0
-	damage_bar.value = health_comp.current_health
 	damage_bar.max_value = health_comp.max_health
+	damage_bar.value = health_comp.current_health
 	health_comp.health_changed.connect(_on_binded_health_change)
 
 	# Match Damage Bar too!
 	damage_bar.value = health_comp.current_health
+	
 
 
-func _on_binded_health_change(previous_health: int, current: int, max_health: int) -> void:
+func _on_binded_health_change(_previous_health: int, current: int, _max_health: int) -> void:
 	if (health_comp == null):
 		return
 	

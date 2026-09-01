@@ -33,6 +33,7 @@ mouse_filter = 2
 color = Color(0.433493, 0.433493, 0.433493, 1)
 
 [node name="ServerLevelUI" parent="CanvasLayer" unique_id=530045848 instance=ExtResource("3_3k1mc")]
+visible = false
 z_index = 1
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1234288785]

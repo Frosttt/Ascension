@@ -1,7 +1,7 @@
 class_name Weapon
 extends Node2D
 
-@onready var hitbox: Hitbox2D = $Hitbox
+@onready var hitbox: Hitbox2D = $Sprite/Hitbox
 
 #@onready var attack_cooldown_timer: Timer = $AttackTimer
 #@onready var attack_hitbox_duration_timer: Timer = $HitboxDurationTimer

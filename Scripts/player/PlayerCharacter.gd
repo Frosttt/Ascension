@@ -4,10 +4,11 @@ extends CharacterBody2D
 @onready var moveComponent: MovementComponent = $MovementComponent
 @onready var sprite: Sprite2D = $Sprite
 @onready var weaponHand: Node2D = $WeaponPivot
-@onready var camera: Camera2D = $Camera2D
+@onready var camera: PlayerCamera = $Camera2D
 @export var starting_weapon: PackedScene = null
-var heldWeapon: Weapon
 
+var heldWeapon: Weapon
+@onready var _player_hud: PlayerHUD = $PlayerHUD
 var _dash_pressed: bool = false;
 
 # networking
@@ -19,11 +20,13 @@ var faceDirection: MovementComponent.Direction = MovementComponent.Direction.DOW
 func _ready() -> void:
 	peer_id = name.to_int()
 	set_multiplayer_authority(peer_id)
-	camera.enabled = is_multiplayer_authority()
-
+	camera.initialize(is_multiplayer_authority());
 	if (starting_weapon):
 		equip_weapon(starting_weapon)
-
+	
+	# TODO: SIngleplayer v. Multiplayer switch
+	if (_player_hud != null):
+		_player_hud.bind_local_player(self)
 
 func _init() -> void:
 	pass
@@ -42,7 +45,7 @@ func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("Dash") && moveComponent.can_dash()):
 		_dash_pressed = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (!is_locally_controlled()): return;
 
 	if (heldWeapon.is_attacking() == false):
