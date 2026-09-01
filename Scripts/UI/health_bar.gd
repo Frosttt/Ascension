@@ -38,8 +38,8 @@ func bind_health(_healthComp: HealthComponent) -> void:
 func _on_binded_health_change(_previous_health: int, current: int, _max_health: int) -> void:
 	if (health_comp == null):
 		return
-	
-	if current <= 0:
+
+	if current < 0:
 		# do something if dead
 		return
 	
