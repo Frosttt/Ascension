@@ -62,9 +62,6 @@ func _physics_process(delta: float) -> void:
 		"Move_Up", 
 		"Move_Down")
 	
-	if (not input_direction.is_zero_approx()):
-		faceDirection = MovementComponent.get_cardinal_direction(input_direction)
-	
 	if (faceDirection == MovementComponent.Direction.LEFT):
 		sprite.scale.x = -abs(sprite.scale.x)
 	elif (faceDirection == MovementComponent.Direction.RIGHT):
@@ -94,6 +91,8 @@ func _rotate_weapon_pivot() -> void:
 	var aim_dir: Vector2 = (aim).normalized()
 	weaponHand.position = aim_dir * 10;
 	weaponHand.rotation = aim_dir.angle() + PI / 2.0
+
+	faceDirection = MovementComponent.get_cardinal_direction(aim_dir)
 
 func is_locally_controlled() -> bool:
 	return _locally_controlled
