@@ -75,6 +75,7 @@ func _physics_process(delta: float) -> void:
 func equip_weapon(weapon_scene: PackedScene) -> void:
 	super.equip_weapon(weapon_scene);
 	weaponHand.add_child(heldWeapon)
+	heldWeapon.set_wielder(self)
 	
 func _rotate_weapon_pivot() -> void:
 	# TODO: Implement for controller pivot

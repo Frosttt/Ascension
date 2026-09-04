@@ -7,6 +7,7 @@ extends Node2D
 #@onready var attack_hitbox_duration_timer: Timer = $HitboxDurationTimer
 @onready var sprite: Sprite2D = $Sprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+var wielder: Node
 
 func reset() -> void:
 	pass
@@ -37,3 +38,7 @@ func attack_over() -> void:
 
 func is_attacking() -> bool:
 	return animation_player.is_playing()
+
+func set_wielder(newWielder: Node) -> void:
+	wielder = newWielder
+	hitbox.instigator = wielder

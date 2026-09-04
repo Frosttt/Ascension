@@ -27,11 +27,8 @@ func _physics_process(_delta: float) -> void:
 
 func equip_weapon(weapon_scene: PackedScene) -> void:
 	var weapon: Weapon = weapon_scene.instantiate() as Weapon
-
 	if (weapon == null):
 		push_error("Supplied scene does not supply a weapon")
 	
 	heldWeapon = weapon;
-	#weaponHand.add_child(heldWeapon)
 	
-

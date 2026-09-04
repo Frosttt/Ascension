@@ -16,4 +16,4 @@ func deactivate() -> void:
 
 func on_hit(hitbox: Hitbox2D) -> void:
 	if (Health):
-		Health.TakeDamage(hitbox.damage);
+		Health.take_damage(hitbox.damage, hitbox.instigator, hitbox);

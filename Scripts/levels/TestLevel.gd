@@ -18,7 +18,7 @@ func _ready() -> void:
 	
 	
 func SpawnPlayer() -> PlayerCharacter:
-	var player := playerScene.instantiate() as PlayerCharacter
+	var player: PlayerCharacter= playerScene.instantiate() as PlayerCharacter
 	if (player == null):
 		push_error("The assigned player scene does not have a PlayerCharacter script!")
 		return null
