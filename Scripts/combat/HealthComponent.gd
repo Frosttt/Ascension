@@ -13,11 +13,12 @@ func _ready() -> void:
 
 func take_damage(amount: int, instigator: Node = null, _hitbox: Hitbox2D = null) -> int:
 	var previousHp: int  = current_health
-	current_health = maxi(current_health - amount, 0)
-	health_changed.emit(previousHp, current_health, max_health)
-
+	
 	if (instigator == owner):
 		return current_health;
+
+	current_health = maxi(current_health - amount, 0)
+	health_changed.emit(previousHp, current_health, max_health)
 
 	print("[%s]Health Changed: %s -> %s from instigator: %s" % [get_parent().name, previousHp, current_health, instigator.name]);
 	
