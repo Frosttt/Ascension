@@ -31,6 +31,7 @@ func play_intro_animation() -> void:
 	for index: int in buttonlist.size():
 		var control : Control = buttonlist.get(index) as Control
 		if (!control.visible || !control.offset_transform_enabled):
+			print_debug("Tween for object %s is not playing, did you forget to enable visibility or the offset_transform?" % control.name);
 			continue
 		control.offset_transform_position.x = -720;
 		_intro_tween.tween_property(
@@ -39,6 +40,7 @@ func play_intro_animation() -> void:
 			0.0,
 			animation_duration
 		).set_delay((index + 1) * stagger_delay).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
 
 
 func _on_quit_button_button_up() -> void:
