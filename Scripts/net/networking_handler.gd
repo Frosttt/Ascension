@@ -41,7 +41,7 @@ func get_local_ip() -> String:
 	# Returns an array of all IP addresses bound to this machine
 	var addresses: PackedStringArray = IP.get_local_addresses()
 	
-	for ip in addresses:
+	for ip: String in addresses:
 		# Filter for IPv4 local network addresses (commonly starting with 192.168. or 10.)
 		if ip.to_ascii_buffer().size() > 0 and not ip.begins_with("127.") and not ":" in ip:
 			return ip

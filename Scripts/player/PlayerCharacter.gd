@@ -1,13 +1,10 @@
 class_name PlayerCharacter
-extends CharacterBody2D
+extends CharacterController
 
-@onready var moveComponent: MovementComponent = $MovementComponent
-@onready var sprite: Sprite2D = $Sprite
+
 @onready var weaponHand: Node2D = $WeaponPivot
 @onready var camera: PlayerCamera = $Camera2D
-@export var starting_weapon: PackedScene = null
 
-var heldWeapon: Weapon
 @onready var _player_hud: PlayerHUD = $PlayerHUD
 var _dash_pressed: bool = false;
 
@@ -15,7 +12,6 @@ var _dash_pressed: bool = false;
 var peer_id: int
 var _locally_controlled: bool = false;
 
-var faceDirection: MovementComponent.Direction = MovementComponent.Direction.DOWN
 
 func _ready() -> void:
 	peer_id = name.to_int()
@@ -77,13 +73,9 @@ func _physics_process(delta: float) -> void:
 
 
 func equip_weapon(weapon_scene: PackedScene) -> void:
-	var weapon: Weapon = weapon_scene.instantiate() as Weapon
-
-	if (weapon == null):
-		push_error("Supplied scene does not supply a weapon")
-	
-	heldWeapon = weapon;
+	super.equip_weapon(weapon_scene);
 	weaponHand.add_child(heldWeapon)
+	heldWeapon.set_wielder(self)
 	
 func _rotate_weapon_pivot() -> void:
 	# TODO: Implement for controller pivot
@@ -95,6 +87,7 @@ func _rotate_weapon_pivot() -> void:
 	weaponHand.rotation = aim_dir.angle() + PI / 2.0
 
 	faceDirection = MovementComponent.get_cardinal_direction(aim_dir)
+
 
 func is_locally_controlled() -> bool:
 	return _locally_controlled
