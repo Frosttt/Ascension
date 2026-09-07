@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dyjbk0lni6cw7"]
+
+[ext_resource type="Texture2D" uid="uid://4kpqord8c0ru" path="res://Sprites/UI/Checkberbox.png" id="1_5wsvm"]
+
+[node name="MainMenu" type="Control" unique_id=747077267]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GlobalMenuContainer" type="MarginContainer" parent="." unique_id=2130962193]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MenuGroup" type="MarginContainer" parent="GlobalMenuContainer" unique_id=1856206324]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="MainMenuVContainer" type="VBoxContainer" parent="GlobalMenuContainer/MenuGroup" unique_id=150901861]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GlobalMenuContainer/MenuGroup/MainMenuVContainer" unique_id=1309698635]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Project Ascension"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="GlobalMenuContainer/MenuGroup/MainMenuVContainer" unique_id=124629258]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_right = 150
+
+[node name="MenuButtonContainer" type="VBoxContainer" parent="GlobalMenuContainer/MenuGroup/MainMenuVContainer/MarginContainer" unique_id=1064544900]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="GlobalMenuContainer/MenuGroup/MainMenuVContainer/MarginContainer/MenuButtonContainer" unique_id=1876004819]
+layout_mode = 2
+text = "Play Solo
+"
+
+[node name="Button2" type="Button" parent="GlobalMenuContainer/MenuGroup/MainMenuVContainer/MarginContainer/MenuButtonContainer" unique_id=914062045]
+layout_mode = 2
+text = "Play Online
+"
+
+[node name="Button3" type="Button" parent="GlobalMenuContainer/MenuGroup/MainMenuVContainer/MarginContainer/MenuButtonContainer" unique_id=346197043]
+layout_mode = 2
+text = "Quit Game
+"
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=929121183]
+modulate = Color(0.14178953, 0.2466686, 0.3720627, 1)
+z_index = -3
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(-7, 27)
+repeat_size = Vector2(64, 64)
+autoscroll = Vector2(32, 32)
+repeat_times = 32
+limit_begin = Vector2(0, 0)
+follow_viewport = false
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1157624756]
+position = Vector2(659, 410)
+texture = ExtResource("1_5wsvm")
