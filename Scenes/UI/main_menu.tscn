@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4kpqord8c0ru" path="res://Sprites/UI/Checkberbox.png" id="1_5wsvm"]
 [ext_resource type="Theme" uid="uid://daef7bmgkumef" path="res://Scenes/UI/Themes/UI_BT_Theme.tres" id="1_i2xx2"]
+[ext_resource type="Script" uid="uid://dmnoh3jlyr603" path="res://Scripts/UI/main_menu.gd" id="1_o14dv"]
 
 [node name="MainMenu" type="Control" unique_id=747077267]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_o14dv")
 
 [node name="GlobalMenuContainer" type="MarginContainer" parent="." unique_id=2130962193]
 layout_mode = 1
@@ -23,6 +25,7 @@ theme_override_constants/margin_right = 640
 [node name="MenuGroup" type="MarginContainer" parent="GlobalMenuContainer" unique_id=1856206324]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 
 [node name="MainMenuVContainer" type="VBoxContainer" parent="GlobalMenuContainer/MenuGroup" unique_id=150901861]
@@ -81,3 +84,6 @@ ignore_camera_scroll = true
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1157624756]
 position = Vector2(659, 410)
 texture = ExtResource("1_5wsvm")
+
+[connection signal="button_up" from="GlobalMenuContainer/MenuGroup/MainMenuVContainer/MarginContainer/MenuButtonContainer/SoloButton" to="." method="_on_solo_button_button_up"]
+[connection signal="button_up" from="GlobalMenuContainer/MenuGroup/MainMenuVContainer/MarginContainer/MenuButtonContainer/QuitButton" to="." method="_on_quit_button_button_up"]
