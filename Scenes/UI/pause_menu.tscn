@@ -62,12 +62,24 @@ offset_transform_enabled = true
 theme = ExtResource("1_rrvs5")
 text = "Resume"
 
-[node name="OptionsButton" type="Button" parent="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer" unique_id=1510039550]
+[node name="RestartButton" type="Button" parent="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer" unique_id=1510039550]
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("1_rrvs5")
+text = "Restart"
+
+[node name="OptionsButton" type="Button" parent="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer" unique_id=1213708062]
 layout_mode = 2
 offset_transform_enabled = true
 theme = ExtResource("1_rrvs5")
 text = "Options
 "
+
+[node name="MainMenuButton" type="Button" parent="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer" unique_id=353722116]
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("1_rrvs5")
+text = "Return to Main Menu"
 
 [node name="QuitButton" type="Button" parent="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer" unique_id=379166190]
 layout_mode = 2
@@ -77,4 +89,6 @@ text = "Quit Game
 "
 
 [connection signal="button_up" from="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer/ResumeButton" to="." method="_on_resume_button_button_up"]
+[connection signal="button_up" from="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer/RestartButton" to="." method="_on_restart_button_button_up"]
+[connection signal="button_up" from="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer/MainMenuButton" to="." method="_on_main_menu_button_button_up"]
 [connection signal="button_up" from="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer/QuitButton" to="." method="_on_quit_button_button_up"]

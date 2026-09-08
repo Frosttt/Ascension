@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 NetworkHandler="*uid://dxaoo2n0oakgn"
-AscenionGlobals="*uid://v3630ouvchga"
+AscensionGlobals="*uid://dsyb521ng7h2g"
 
 [debug]
 
