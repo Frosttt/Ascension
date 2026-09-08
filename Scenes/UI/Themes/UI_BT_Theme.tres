@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://daef7bmgkumef"]
+
+[ext_resource type="StyleBox" uid="uid://x0s0ht3o8et8" path="res://Scenes/UI/Themes/UI_BT_Theme_FlatStyleHover.tres" id="1_edtyu"]
+[ext_resource type="StyleBox" uid="uid://bgbr8m0kl77k6" path="res://Scenes/UI/Themes/UI_BT_Theme_FlatStyle1.tres" id="1_svshj"]
+
+[resource]
+default_font_size = 16
+Button/font_sizes/font_size = 24
+Button/styles/hover = ExtResource("1_edtyu")
+Button/styles/normal = ExtResource("1_svshj")

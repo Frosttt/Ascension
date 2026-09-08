@@ -5,7 +5,7 @@ extends CharacterController
 @onready var weaponHand: Node2D = $WeaponPivot
 @onready var camera: PlayerCamera = $Camera2D
 
-@onready var _player_hud: PlayerHUD = $PlayerHUD
+@onready var _player_hud: PlayerHUD = $CanvasLayer/PlayerHUD
 var _dash_pressed: bool = false;
 
 # networking
@@ -40,6 +40,9 @@ func _input(event: InputEvent) -> void:
 	
 	if (event.is_action_pressed("Dash") && moveComponent.can_dash()):
 		_dash_pressed = true
+	
+	if (event.is_action_pressed("Pause")):
+		_player_hud.toggle_pause_menu()
 
 func _process(_delta: float) -> void:
 	if (!is_locally_controlled()): return;

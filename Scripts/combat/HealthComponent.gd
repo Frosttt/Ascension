@@ -10,7 +10,9 @@ var current_health: int
 func _ready() -> void:
 	current_health = max_health;
 
-
+func set_max_health():
+	pass
+	
 func take_damage(amount: int, instigator: Node = null, _hitbox: Hitbox2D = null) -> int:
 	var previousHp: int  = current_health
 	

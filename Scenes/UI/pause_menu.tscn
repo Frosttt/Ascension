@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://b0n2q7dktcv46"]
+
+[ext_resource type="Script" uid="uid://cob2r0oaivgk" path="res://Scripts/UI/pause_menu.gd" id="1_8rf44"]
+[ext_resource type="Theme" uid="uid://daef7bmgkumef" path="res://Scenes/UI/Themes/UI_BT_Theme.tres" id="1_rrvs5"]
+
+[node name="PauseMenu" type="Control" unique_id=489641865]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8rf44")
+
+[node name="PauseContainer" type="MarginContainer" parent="." unique_id=486565079]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="PauseContainer" unique_id=625976859]
+layout_mode = 2
+
+[node name="MenuGroup" type="MarginContainer" parent="PauseContainer" unique_id=1863762446]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 175
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 175
+theme_override_constants/margin_bottom = 75
+
+[node name="PauseVBox" type="VBoxContainer" parent="PauseContainer/MenuGroup" unique_id=1900915448]
+layout_mode = 2
+
+[node name="PauseText" type="Label" parent="PauseContainer/MenuGroup/PauseVBox" unique_id=1265073678]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 64
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="PauseContainer/MenuGroup/PauseVBox" unique_id=1179262231]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ButtonMargins" type="MarginContainer" parent="PauseContainer/MenuGroup/PauseVBox" unique_id=1137688509]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+
+[node name="MenuButtonContainer" type="VBoxContainer" parent="PauseContainer/MenuGroup/PauseVBox/ButtonMargins" unique_id=902361610]
+process_mode = 3
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ResumeButton" type="Button" parent="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer" unique_id=207571624]
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("1_rrvs5")
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer" unique_id=1510039550]
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("1_rrvs5")
+text = "Restart"
+
+[node name="OptionsButton" type="Button" parent="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer" unique_id=1213708062]
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("1_rrvs5")
+text = "Options
+"
+
+[node name="MainMenuButton" type="Button" parent="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer" unique_id=353722116]
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("1_rrvs5")
+text = "Return to Main Menu"
+
+[node name="QuitButton" type="Button" parent="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer" unique_id=379166190]
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("1_rrvs5")
+text = "Quit Game
+"
+
+[connection signal="button_up" from="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer/ResumeButton" to="." method="_on_resume_button_button_up"]
+[connection signal="button_up" from="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer/RestartButton" to="." method="_on_restart_button_button_up"]
+[connection signal="button_up" from="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer/MainMenuButton" to="." method="_on_main_menu_button_button_up"]
+[connection signal="button_up" from="PauseContainer/MenuGroup/PauseVBox/ButtonMargins/MenuButtonContainer/QuitButton" to="." method="_on_quit_button_button_up"]
