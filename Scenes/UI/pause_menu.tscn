@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://daef7bmgkumef" path="res://Scenes/UI/Themes/UI_BT_Theme.tres" id="1_rrvs5"]
 
 [node name="PauseMenu" type="Control" unique_id=489641865]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,6 +52,7 @@ size_flags_vertical = 3
 theme_override_constants/margin_left = 0
 
 [node name="MenuButtonContainer" type="VBoxContainer" parent="PauseContainer/MenuGroup/PauseVBox/ButtonMargins" unique_id=902361610]
+process_mode = 3
 layout_mode = 2
 theme_override_constants/separation = 10
 

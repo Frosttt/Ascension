@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://f65bho843ydg" path="res://Scenes/health_bar.tscn" id="1_vkk4g"]
 [ext_resource type="Script" uid="uid://bhdtimtmxigah" path="res://Scripts/UI/HUD.gd" id="1_y31ga"]
+[ext_resource type="PackedScene" uid="uid://b0n2q7dktcv46" path="res://Scenes/UI/pause_menu.tscn" id="2_jh2mb"]
 
 [node name="PlayerHUD" type="Control" unique_id=1506417482 node_paths=PackedStringArray("_health_bar")]
 layout_mode = 3
@@ -11,14 +12,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y31ga")
-_health_bar = NodePath("CanvasLayer/HealthBar")
+_health_bar = NodePath("PlayerSceen/MarginContainer/HealthBar")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=8015586]
+[node name="PlayerSceen" type="MarginContainer" parent="." unique_id=1823612882]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HealthBar" parent="CanvasLayer" unique_id=984813684 instance=ExtResource("1_vkk4g")]
-offset_left = 6.0
-offset_top = 4.0
-offset_right = 406.0
-offset_bottom = 24.0
-scale = Vector2(1, 1)
-size_flags_horizontal = 0
+[node name="MarginContainer" type="MarginContainer" parent="PlayerSceen" unique_id=525893133]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 900
+
+[node name="HealthBar" parent="PlayerSceen/MarginContainer" unique_id=984813684 instance=ExtResource("1_vkk4g")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PlayerMenus" type="MarginContainer" parent="." unique_id=439574275]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenuContainer" type="MarginContainer" parent="PlayerMenus" unique_id=1442887344]
+layout_mode = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 100
+
+[node name="PauseMenu" parent="PlayerMenus/PauseMenuContainer" unique_id=489641865 instance=ExtResource("2_jh2mb")]
+process_mode = 0
+layout_mode = 2

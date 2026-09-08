@@ -1,14 +1,14 @@
 extends Control
 class_name PauseMenu
 
-signal menu_closed
+signal on_menu_closed
 
 func _ready() -> void:
 	pass;
 
 func close_menu() -> void:
 	# handle unpause here or outside of this. Probably in some global controller
-	menu_closed.emit()
+	on_menu_closed.emit()
 	pass;
 
 func _on_resume_button_button_up() -> void:

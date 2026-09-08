@@ -50,3 +50,7 @@ func _on_quit_button_button_up() -> void:
 
 func _on_solo_button_button_up() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Sandbox.tscn")
+
+
+func _on_replay_animation_button_up() -> void:
+	play_intro_animation()

@@ -74,6 +74,13 @@ theme = ExtResource("1_i2xx2")
 text = "Options
 "
 
+[node name="ReplayAnimation" type="Button" parent="GlobalMenuContainer/MenuGroup/MainMenuVContainer/MarginContainer/MenuButtonContainer" unique_id=1048358059]
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("1_i2xx2")
+text = "Replay Animation
+"
+
 [node name="QuitButton" type="Button" parent="GlobalMenuContainer/MenuGroup/MainMenuVContainer/MarginContainer/MenuButtonContainer" unique_id=346197043]
 layout_mode = 2
 offset_transform_enabled = true
@@ -98,4 +105,5 @@ position = Vector2(659, 410)
 texture = ExtResource("1_5wsvm")
 
 [connection signal="button_up" from="GlobalMenuContainer/MenuGroup/MainMenuVContainer/MarginContainer/MenuButtonContainer/SoloButton" to="." method="_on_solo_button_button_up"]
+[connection signal="button_up" from="GlobalMenuContainer/MenuGroup/MainMenuVContainer/MarginContainer/MenuButtonContainer/ReplayAnimation" to="." method="_on_replay_animation_button_up"]
 [connection signal="button_up" from="GlobalMenuContainer/MenuGroup/MainMenuVContainer/MarginContainer/MenuButtonContainer/QuitButton" to="." method="_on_quit_button_button_up"]
