@@ -16,12 +16,15 @@ func _on_resume_button_button_up() -> void:
 
 
 func _on_quit_button_button_up() -> void:
+	close_menu()
 	AscensionGlobals.close_game(self);
 
 
 func _on_restart_button_button_up() -> void:
+	close_menu()
 	AscensionGlobals.reload_scene(self)
 
 
 func _on_main_menu_button_button_up() -> void:
+	close_menu()
 	AscensionGlobals.return_to_main_menu(self)

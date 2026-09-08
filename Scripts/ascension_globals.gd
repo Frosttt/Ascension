@@ -1,4 +1,3 @@
-class_name AscensionGlobals
 extends Node
 
 
@@ -12,4 +11,4 @@ static func close_game(closer: Node) -> void:
 	closer.get_tree().quit(0)
 
 static func return_to_main_menu(instigator: Node) -> void:
-	instigator.change_scene_to_file("res://Scenes/UI/main_menu.tscn")
+	instigator.get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
