@@ -4,8 +4,10 @@ extends CharacterController
 
 @onready var weaponHand: Node2D = $WeaponPivot
 @onready var camera: PlayerCamera = $Camera2D
+@onready var _player_canvas: CanvasLayer = $CanvasLayer
+@export var _player_hud_object: PackedScene = null;
+var _player_hud: PlayerHUD;
 
-@onready var _player_hud: PlayerHUD = $CanvasLayer/PlayerHUD
 var _dash_pressed: bool = false;
 
 # networking
@@ -21,8 +23,8 @@ func _ready() -> void:
 		equip_weapon(starting_weapon)
 	
 	# TODO: SIngleplayer v. Multiplayer switch
-	if (_player_hud != null):
-		_player_hud.bind_local_player(self)
+	if (_player_hud_object != null):
+		create_hud();
 
 func _init() -> void:
 	pass
@@ -91,6 +93,14 @@ func _rotate_weapon_pivot() -> void:
 
 	faceDirection = MovementComponent.get_cardinal_direction(aim_dir)
 
+
+func create_hud() -> void:
+	# only do this if multiplayer owns
+	var hud: PlayerHUD = _player_hud_object.instantiate() as PlayerHUD
+	_player_canvas.add_child(hud)
+	_player_hud = hud;
+	
+	_player_hud.bind_local_player(self)
 
 func is_locally_controlled() -> bool:
 	return _locally_controlled
