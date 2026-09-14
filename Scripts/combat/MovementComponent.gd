@@ -3,7 +3,8 @@ extends Node
 
 @export var max_speed: float = 300.0
 @export var acceleration: float = 1200.0
-@export var deceleration: float = 1600.0
+@export var turn_acceleration: float = 3000.0
+@export var deceleration: float = 2500.0
 @export var over_speed_tolerance: float = 50.0
 var braking_speed: float = 5000.0
 
@@ -50,6 +51,12 @@ func CalculateVelocity(current_velocity: Vector2, input_direction: Vector2, delt
 	return current_velocity.move_toward(target_velocity, change * delta)
 
 func calculate_normal_movement(current_velocity: Vector2, input_direction: Vector2, delta: float) -> Vector2:
+		if input_direction.is_zero_approx():
+			return current_velocity.move_toward(
+				Vector2.ZERO,
+				deceleration * delta
+			)
+			
 		var target_velocity: Vector2 = input_direction * max_speed
 		var change: float = acceleration
 
@@ -59,7 +66,15 @@ func calculate_normal_movement(current_velocity: Vector2, input_direction: Vecto
 		
 		if (is_over_speed):
 			change = braking_speed
-		elif (input_direction.is_zero_approx()):
+		elif (not input_direction.is_zero_approx()):
+			var movement_direction: Vector2 = current_velocity.normalized();
+			var dir_alignment: float = movement_direction.dot(input_direction);
+
+			# 1.0 means the same direction.
+			# 0.0 means a 90-degree turn.
+			# -1.0 means reversing.
+			if dir_alignment < 0.8:
+				change = turn_acceleration
 			change = deceleration
 
 		return current_velocity.move_toward(target_velocity, change * delta)
